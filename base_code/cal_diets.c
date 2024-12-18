@@ -50,7 +50,6 @@ void loadDiets(const char* DIETFILEPATH) {
 		 
     }
     fclose(file);
-}(24.12.1. ayoung.cho)
 }//(24.12.16.by ayoung.cho)
 
 /*
@@ -93,5 +92,4 @@ void inputDiet(HealthData* health_data) {
 	    health_data->diet_count++;
 	
 	 
-}}//(24.12.18 by ayoungcho)
 }//(24.12.18 by ayoungcho)
