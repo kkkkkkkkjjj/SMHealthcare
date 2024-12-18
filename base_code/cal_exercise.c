@@ -36,15 +36,17 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while ( ) {
+        //(1) read "exercise_txt" and save as {exercise_name, calories_burned_per_minute} form in exercise list
+        while (exercise_list_size < MAX_EXERCISES && 
+           fscanf(file, "%s %d", exercise_list[exercise_list_size].exercise_name,&exercise_list[exercise_list_size].calories_burned_per_minute) == 2 ) {
     	
-        if (exercise_list_size >= MAX_EXERCISES){
-        	break;
-		}
+		//(2) increase the number of exercise_list (6 IS THE MAX NUM OF EXERCISES)
+		   exercise_list_size++; 
+	
     }
 
     fclose(file);
-}
+}// (24.12.18. by ayoungcho)
 
 
 /*
@@ -62,17 +64,42 @@ void inputExercise(HealthData* health_data) {
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
+      //(1) print every exercise in exercise_list 
+      for(i=0; i< exercise_list_size; i++)
+	  {
+         printf("%d. %s (%d kcal burned per min.)\n", i + 1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
+	  }
 
 
     // ToCode: to enter the exercise to be chosen with exit option
-
+    printf("Enter the diet : ");
+    scanf("%i", &choice);
  
     
     // To enter the duration of the exercise
+    
+    ///(1) get the duration from player input
     printf("Enter the duration of the exercise (in min.): ");
     scanf("%d", &duration);
+    
+    /// (2) calculate the calories burned during exercise 
+    exercise_list[choice].calories_burned_duration = 
+    (exercise_list[choice].calories_burned_per_minute * duration);
+    
+	///(3)  enter the calories burned during exercise into health_data
+	health_data->exercises[health_data->exercise_count].calories_burned_duration = exercise_list[choice].calories_burned_duration;
+	
 
     // ToCode: to enter the selected exercise and total calcories burned in the health data
     
+	///(1) copy exercise name into exercises.exercise_name 
+	strcpy(health_data->exercises[health_data->exercise_count].exercise_name, exercise_list[choice ].exercise_name);
+    
+	///(2) add calories burned during exercise to total calories in health_data
+    health_data->total_calories_burned +=exercise_list[choice].calories_burned_duration;
+	
+	///(3) increase # of exercise in health_data
+	health_data->exercise_count++; 
+	
+}//(24.12.18 by ayoungcho)
 
-}
