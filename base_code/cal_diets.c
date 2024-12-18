@@ -51,6 +51,7 @@ void loadDiets(const char* DIETFILEPATH) {
     }
     fclose(file);
 }(24.12.1. ayoung.cho)
+}//(24.12.16.by ayoung.cho)
 
 /*
     description : to enter the selected diet and the total calories intake in the health data
@@ -93,3 +94,4 @@ void inputDiet(HealthData* health_data) {
 	
 	 
 }}//(24.12.18 by ayoungcho)
+}//(24.12.18 by ayoungcho)
