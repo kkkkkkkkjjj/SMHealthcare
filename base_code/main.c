@@ -48,16 +48,23 @@ int main() {
         switch (choice) {
             case 1:
             	// (1)input exercise and duration choice
+            	inputExercise(&health_data);
             	// (2)upload on "health.txt" 
+            	saveData(HEALTHFILEPATH, &health_data);
+            	
                 break;
                 
             case 2:
             	// (1)input diet choice
-            	// (2)upload on "health.txt" 
+            	inputDiet(&health_data);
+                // (2)upload on "health.txt" 
+                saveData(HEALTHFILEPATH,&health_data);
+                
                 break;
                 
             case 3:
             	//(1)to print out the recommendtaion depending on the current total calories burned and intake 
+            	printHealthData(&health_data);
                 break;
                 
             case 4:
@@ -70,7 +77,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while (health_data.total_calories_intake - 1300 - health_data.total_calories_burned != 0  );
+    } while (health_data.total_calories_intake - 1300 - health_data.total_calories_burned != 0  );// exit condition
 
     return 0;
 }//(24.12.18. by ayoung cho)

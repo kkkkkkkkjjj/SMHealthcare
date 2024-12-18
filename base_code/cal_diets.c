@@ -18,7 +18,7 @@
 
 
 // list of diets 
-static Diet diet_list[MAX_DIETS];
+static Diet diet_list[MAX_DIETS];  // lists of diets in "diet.txt"
 static int diet_list_size = 0;
 
 
@@ -27,13 +27,19 @@ static int diet_list_size = 0;
 */
 
 void loadDiets(const char* DIETFILEPATH) {
-    FILE *file = fopen(DIETFILEPATH, "r");
+	
+    FILE *file;
+    file = fopen(DIETFILEPATH, "r");// open the "diets_txt" and read 
+    
+    
     if (file == NULL) {
         printf("There is no file for diets! \n");
         return;
     }
+    
 
-     // ToCode: to read a list of the diets from the given file
+    
+	// ToCode: to read a list of the diets from the given file
     while () {
     	
         if (diet_list_size >= MAX_DIETS){

@@ -18,8 +18,8 @@
 
 
 // To declare the structure of the exercises
-static Exercise exercise_list[MAX_EXERCISES];
-int exercise_list_size = 0;
+static Exercise exercise_list[MAX_EXERCISES];//{ exercise_name, cal per min} 
+int exercise_list_size = 0;// 0 exercies has selected yet
 
 
 /*
@@ -27,7 +27,9 @@ int exercise_list_size = 0;
 */
 
 void loadExercises(const char* EXERCISEFILEPATH) {
+	
     FILE *file = fopen(EXERCISEFILEPATH, "r");
+    
     if (file == NULL) {
         printf("There is no file for exercises! \n");
         return;
