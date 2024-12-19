@@ -1,13 +1,10 @@
 [Exercises] 
-riding- 30kcal
-riding- 10kcal
-Total calories burned : 40
+walking- 200kcal
+Total calories burned : 200
 [Diets] 
+pizza900kcal
 rice600kcal
-rice600kcal
-salad70kcal
-salad70kcal
-Total calories intake : 1340
+Total calories intake : 1500
 [Total] 
 Basal metabolic rate - 1300 kcal
 The remaining calories - 0 kcal
