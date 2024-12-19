@@ -46,14 +46,14 @@ void loadDiets(const char* DIETFILEPATH) {
         return;
     }
     
-	// ToCode: to read a list of the diets from the given file
-	//*(1) read "diets_txt" and save as {food_name, calories_ intake} form  in diet_list 
-	///    put break; condition fr. basecode.zip into while() by "&&"
+   // ToCode: to read a list of the diets from the given file
+   //*(1) read "diets_txt" and save as {food_name, calories_ intake} form  in diet_list 
+   /// put break; condition fr. basecode.zip into while() by "&&"
     while (diet_list_size < MAX_DIETS && 
-	fscanf(file, "%s %d", diet_list[diet_list_size].food_name,&diet_list[diet_list_size].calories_intake) == 2) 
+    fscanf(file, "%s %d", diet_list[diet_list_size].food_name,&diet_list[diet_list_size].calories_intake) == 2) 
     {
-	//*(2) increase the number of diest_list (6 IS THE MAX NUM OF DIETS)    
-	diet_list_size++;
+    //*(2) increase the number of diest_list (6 IS THE MAX NUM OF DIETS)    
+    diet_list_size++;
     }
     //*(3) close the file
     fclose(file);
@@ -81,9 +81,9 @@ void inputDiet(HealthData* health_data) {
     for(i=0; i<diet_list_size; i++)
     {
     printf("%d. %s (%d kcal)\n", i+1, diet_list[i].food_name, diet_list[i].calories_intake);
-	}
+    }
 
-	// ToCode: to enter the diet to be chosen with exit option
+    // ToCode: to enter the diet to be chosen with exit option
     printf("Enter the diet : ");
     scanf("%i", &choice);        
     
