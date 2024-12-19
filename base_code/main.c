@@ -29,12 +29,15 @@ int main() {
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	if (health_data.total_calories_intake - 1300 - health_data.total_calories_burned == 0){
-            printf("You have consumed all your calories for today! \n");
-            break;
-		} 
-		else{
-			printf("\n=======================================================================\n");
+    	if (health_data.total_calories_intake - 1300 - health_data.total_calories_burned == 0)
+	{
+                printf("You have consumed all your calories for today! \n");
+                break;
+	} 
+	
+	else
+	{
+		printf("\n=======================================================================\n");
         	printf("[Healthcare Management Systems] \n");
         	printf("1. Exercise \n");
         	printf("2. Diet \n");
@@ -52,7 +55,6 @@ int main() {
             	inputExercise(&health_data);
             	// (2)upload on "health.txt" 
             	saveData(HEALTHFILEPATH, &health_data);
-            	
                 break;
                 
             case 2:
@@ -60,7 +62,6 @@ int main() {
             	inputDiet(&health_data);
                 // (2)upload on "health.txt" 
                 saveData(HEALTHFILEPATH,&health_data);
-                
                 break;
                 
             case 3:
@@ -69,9 +70,8 @@ int main() {
                 break;
                 
             case 4:
-            	
-    			printf("Exit the system.\n");
-    			printf("=======================================================================\n");
+    		printf("Exit the system.\n");
+    		printf("=======================================================================\n");
                 break;
                 
             default:
