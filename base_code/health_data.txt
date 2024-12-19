@@ -1,0 +1,13 @@
+[Exercises] 
+riding- 30kcal
+riding- 10kcal
+Total calories burned : 40
+[Diets] 
+rice600kcal
+rice600kcal
+salad70kcal
+salad70kcal
+Total calories intake : 1340
+[Total] 
+Basal metabolic rate - 1300 kcal
+The remaining calories - 0 kcal

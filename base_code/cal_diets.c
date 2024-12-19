@@ -30,6 +30,7 @@ static int diet_list_size = 0;
 
 /*
     description : read the information in "diets.txt"
+    
 */
 
 
@@ -66,6 +67,9 @@ void loadDiets(const char* DIETFILEPATH) {
     
     operation : 1. provide the options for the diets to be selected
     			2. enter the selected diet and the total calories intake in the health data
+    			
+    warning   : 1. choice = exercise_list + 1 ; choice starts from 1, exercise_list starts from 0
+            
 */
 
 void inputDiet(HealthData* health_data) {
@@ -81,18 +85,19 @@ void inputDiet(HealthData* health_data) {
 
 	// ToCode: to enter the diet to be chosen with exit option
     printf("Enter the diet : ");
-    scanf("%d", &choice);        
+    scanf("%i", &choice);        
     
     // ToCode: to enter the selected diet in the health data
 	//*(1) enter the food name that player chose     
-    strcpy(health_data->diet[health_data->diet_count+1].food_name ,diet_list[choice-1].food_name);
+    strcpy(health_data->diet[health_data->diet_count].food_name ,diet_list[choice-1].food_name);
     
     // ToCode: to enter the total calories intake in the health data
     //*(1)  enter the calories intake of the food that player chose
-    health_data->diet[health_data->diet_count+1].calories_intake = diet_list[choice-1].calories_intake;
+    health_data->diet[health_data->diet_count].calories_intake = diet_list[choice-1].calories_intake;
 	//*(2) to add calories intake to total calories intake in health_data
     health_data->total_calories_intake += diet_list[choice-1].calories_intake;
-	//*(3) to count the number of diet player chose
-	health_data->diet_count++;
+	//*(3) to add up the number of diets player chose
+	health_data->diet_count++; 
+
 	    
-}//(24.12.18 by ayoungcho)
+}//(24.12.18 by ayoungcho.. 24.12.19 modified by ayoungcho)

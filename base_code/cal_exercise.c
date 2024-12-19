@@ -24,7 +24,7 @@
 
 // To declare the structure of the exercises
 static Exercise exercise_list[MAX_EXERCISES];//{ exercise_name, cal per min} 
-int exercise_list_size = 0;// 0 exercies has selected yet
+int exercise_list_size = 0;// # of exercise in textfile : 6 
 
 
 /*
@@ -55,7 +55,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     fclose(file);
     
 }// (24.12.18. by ayoungcho)
-
+// exercise_size_list_size : 5 b.c. it starts from 0 
 
 /*
     description : to enter the selected exercise and the total calories burned in the health data
@@ -65,6 +65,9 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     operation : 1. provide the options for the exercises to be selected
     			2. enter the duration of the exercise
     			3. enter the selected exercise and the total calories burned in the health data
+    			
+    warning   : 1. choice = exercise_list + 1 ; choice starts from 1, exercise_list starts from 0
+                
 */
 
 void inputExercise(HealthData* health_data) {
@@ -76,26 +79,25 @@ void inputExercise(HealthData* health_data) {
     for(i=0; i< exercise_list_size; i++)
 	{
     printf("%d. %s (%d kcal burned per min.)\n", i + 1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
-	}
+  	}
 	
     // ToCode: to enter the exercise to be chosen with exit option
-    printf("Enter the diet : ");
-    //*(1) get the diet choice form the player
+    //*(1) get the exercise choice form the player
+    printf("Enter the exercies : ");
     scanf("%i", &choice);
     //*(2) get the duration from player input
     printf("Enter the duration of the exercise (in min.): ");
     scanf("%d", &duration);
-    //*(3) calculate the calories burned during exercise 
-    exercise_list[choice].calories_burned_duration = (exercise_list[choice].calories_burned_per_minute * duration);
-	//*(4)  enter the calories burned during exercise into health_data
-	health_data->exercises[health_data->exercise_count].calories_burned_duration = exercise_list[choice].calories_burned_duration;
-
+    //*(3) calculate the calories burned during exercise ; multiply duration(min) with cal burned(kcal/min)
+    health_data->exercises[health_data->exercise_count].calories_burned_duration = 
+    (exercise_list[choice-1].calories_burned_per_minute * duration);
+   	
     // ToCode: to enter the selected exercise and total calcories burned in the health data
 	//*(1) copy exercise name into exercises.exercise_name 
-	strcpy(health_data->exercises[health_data->exercise_count].exercise_name, exercise_list[choice ].exercise_name);
+	   strcpy(health_data->exercises[health_data->exercise_count].exercise_name, exercise_list[choice-1].exercise_name);
 	//*(2) add calories burned during exercise to total calories in health_data
-    health_data->total_calories_burned +=exercise_list[choice].calories_burned_duration;
-	//*(3) increase # of exercise in health_data
+    health_data->total_calories_burned += health_data->exercises[health_data->exercise_count].calories_burned_duration;
+	//*(3) to add up the number of exercises player chose
 	health_data->exercise_count++; 
 	
 }//(24.12.18 by ayoungcho)

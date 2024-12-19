@@ -42,10 +42,10 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
     //*(1) write exercise history in "health_data.txt"
-    for(i=0; i<health_data->exercise_count; i++)//exercise_count : number of exercises player has selected 
+    for(i=0; i<(health_data->exercise_count); i++)//exercise_count : number of exercises player has selected 
     {
     fprintf(file, "%s",health_data->exercises[i].exercise_name);// write name
-    fprintf(file, "- %skcal\n",health_data->exercises[i].calories_burned_duration);	// write calories burned
+    fprintf(file, "- %dkcal\n",health_data->exercises[i].calories_burned_duration);	// write calories burned
 	}
     //*(2) write total calories burned "health_data.txt"
     fprintf(file, "Total calories burned : %d", health_data->total_calories_burned);
@@ -54,10 +54,10 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	// ToCode: to save the chosen diet and total calories intake 
     fprintf(file, "\n[Diets] \n");
     //*(1) write diet history in "health_data.txt"
-    for(i=0; i<health_data->diet_count; i++)//diet count : number of diets player has selected
+    for(i=0; i< (health_data->diet_count); i++)//diet count : number of diets player has selected
     {
     fprintf(file, "%s",health_data->diet[i].food_name);// write name 
-    fprintf(file, "%skcal\n",health_data->diet[i].calories_intake);//write calories
+    fprintf(file, "%dkcal\n",health_data->diet[i].calories_intake);//write calories
 	}
 	//*(2) write total calories intake in "health_data.txt"
     fprintf(file, "Total calories intake : %d", health_data->total_calories_intake);
@@ -100,7 +100,7 @@ void printHealthData(const HealthData* health_data) {
 
     // ToCode: to print out the saved history of diets
     printf("============================= History of Diet =========================\n");
-    //*(2)print every diet history of the player
+    //*(2) print every diet history of the player
 	for(i=0; i< (health_data->diet_count); i++)
 	{
        printf("Food : %s, Calories intake : %d kcal\n",health_data->diet[i].food_name, health_data->diet[i].calories_intake);

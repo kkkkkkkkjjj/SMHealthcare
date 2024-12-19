@@ -77,8 +77,9 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while (health_data.total_calories_intake - 1300 - health_data.total_calories_burned != 0  );// exit condition
-
+    } while ((choice != 4) && (health_data.total_calories_intake - 1300 - health_data.total_calories_burned != 0));// exit condition
+    
+    
     return 0;
-}//(24.12.18. by ayoung cho)
+}//(24.12.18. by ayoung cho. 24.12.19 modified by ayoung cho)
 
