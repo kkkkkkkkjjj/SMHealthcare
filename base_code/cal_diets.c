@@ -48,14 +48,17 @@ void loadDiets(const char* DIETFILEPATH) {
     
    // ToCode: to read a list of the diets from the given file
      //*(1) read "diets_txt" and save as {food_name, calories_ intake} form  in diet_list 
-     /// put break; condition fr. basecode.zip into while() by "&&"
-      while (diet_list_size < MAX_DIETS && 
-         fscanf(file, "%s %d", diet_list[diet_list_size].food_name,&diet_list[diet_list_size].calories_intake) == 2) 
-         {
+     /// (24.12.20 changed the code line 52 into simple form)
+      while (fscanf(file, "%s %d", diet_list[diet_list_size].food_name,&diet_list[diet_list_size].calories_intake) != EOF){ 
+         if( diet_list_size < MAX_DIETS) {
      //*(2) increase the number of diest_list (6 IS THE MAX NUM OF DIETS)    
             diet_list_size++;
          }
-    //*(3) close the file
+     //*(3) break if the number of diet_list is larger than 7
+         else {
+            break;
+	 }
+    //*(4) close the file
          fclose(file);
     
 }//(24.12.16.by ayoung.cho)
@@ -79,8 +82,7 @@ void inputDiet(HealthData* health_data) {
     // ToCode: to provide the options for the diets to be selected
       //*(1) print every diet in diet_list : { food_name, (calories_intake kcal) } form
         printf("The list of diets:\n");
-        for(i=0; i<diet_list_size; i++)
-        {
+        for(i=0; i<diet_list_size; i++) {
            printf("%d. %s (%d kcal)\n", i+1, diet_list[i].food_name, diet_list[i].calories_intake);
         }
 
