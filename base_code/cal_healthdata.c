@@ -94,9 +94,8 @@ void printHealthData(const HealthData* health_data) {
      printf("=========================== History of Exercise =======================\n");
      
       //*(1) print every exercise history of the player
-        for(i=0; i<(health_data->exercise_count); i++) 
-        {
-           printf("Exercise : %s, Calories burned : %d kcal\n",health_data->exercises[i].exercise_name, health_data->exercises[i].calories_burned_duration); 
+        for (i=0; i<(health_data->exercise_count); i++) {
+             printf("Exercise : %s, Calories burned : %d kcal\n",health_data->exercises[i].exercise_name, health_data->exercises[i].calories_burned_duration); 
         }
         printf("=======================================================================\n");
 
@@ -104,9 +103,8 @@ void printHealthData(const HealthData* health_data) {
     printf("============================= History of Diet =========================\n");
 	
       //*(2) print every diet history of the player
-	for(i=0; i< (health_data->diet_count); i++)
-	{
-           printf("Food : %s, Calories intake : %d kcal\n",health_data->diet[i].food_name, health_data->diet[i].calories_intake);
+	for (i=0; i< (health_data->diet_count); i++) {
+             printf("Food : %s, Calories intake : %d kcal\n",health_data->diet[i].food_name, health_data->diet[i].calories_intake);
         }
         printf("=======================================================================\n");
 
@@ -126,45 +124,37 @@ void printHealthData(const HealthData* health_data) {
     // ToCode: to print out the recommendtaion depending on the current total calories burned and intake  
 	
       //*(1)REMAINING CAL = 0  
-        if((health_data->total_calories_intake-health_data->total_calories_burned-1300)==0)
-        {
+        if ((health_data->total_calories_intake-health_data->total_calories_burned-1300)==0) {
            printf("You have consumed all your calories for today!\n");
         }
       //*(2)REMAINING CAL < 0 
-        else if((health_data->total_calories_intake-health_data->total_calories_burned-1300) < 0)
-          {
-           printf("[Warning] Too few calories!\n");
-          //*(2) - 1 : INTAKE = 2000
-            if(health_data->total_calories_intake == 2000)
-             {
-               printf("Your total calorie intake for todday has reached your goal!\n");
-             }
-          //*(2) - 2 : INTAKE < 2000
-             else if(health_data->total_calories_intake < 2000)
-             {
-               printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
-             }
-          //*(2) - 3 : INTAKE > 2000
-             else if(health_data->total_calories_intake > 2000)
-             {
-               printf("You have eaten more calories than planned today, but you have exercised too much!\n");
-             }
-           }
+        else if ((health_data->total_calories_intake-health_data->total_calories_burned-1300) < 0) {
+                printf("[Warning] Too few calories!\n");
+           //*(2) - 1 : INTAKE = 2000
+                if (health_data->total_calories_intake == 2000) {
+                   printf("Your total calorie intake for todday has reached your goal!\n");
+                }
+           //*(2) - 2 : INTAKE < 2000
+                else if (health_data->total_calories_intake < 2000) {
+                        printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
+                }
+           //*(2) - 3 : INTAKE > 2000
+                else if (health_data->total_calories_intake > 2000) {
+                        printf("You have eaten more calories than planned today, but you have exercised too much!\n");
+                }
+        }
       //*(3) REMAINING CAL > 0 
-        else if ((health_data->total_calories_intake-health_data->total_calories_burned-1300) > 0)
-          {
-          printf("Please exercise for your health!\n");
-        //*(2) - 1 : INTAKE = 2000
-          if(health_data->total_calories_intake == 2000)
-            {
-              printf("Your total calorie intake for today has reached your goal!\n");
-            }
-        //*(2) - 2 : INTAKE < 2000
-          else if(health_data->total_calories_intake < 2000)
-            {
-               printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
-            }
+        else if ((health_data->total_calories_intake-health_data->total_calories_burned-1300) > 0) {
+                 printf("Please exercise for your health!\n");
+          //*(2) - 1 : INTAKE = 2000
+                 if (health_data->total_calories_intake == 2000) {
+                     printf("Your total calorie intake for today has reached your goal!\n");
+                 }
+          //*(2) - 2 : INTAKE < 2000
+                 else if (health_data->total_calories_intake < 2000) {
+                         printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
+                 }
            }
-         printf("=======================================================================\n");
+            printf("=======================================================================\n");
 	
 }//(24.12.05. by ayoungcho)
