@@ -59,7 +59,7 @@ void loadDiets(const char* DIETFILEPATH) {
             break;
 	 }
     //*(4) close the file
-         fclose(file);
+      }fclose(file);
     
 }//(24.12.16.by ayoung.cho)
 
