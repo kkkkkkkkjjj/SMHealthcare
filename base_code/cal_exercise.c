@@ -44,15 +44,19 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     
     // ToCode: to read a list of the exercises from the given file
       //*(1) read "exercise_txt" and save as {exercise_name, calories_burned_per_minute} form in exercise list
-      /// put break condition fr. basecode.zip into while() by "&&"
-        while (exercise_list_size < MAX_EXERCISES && fscanf(file, "%s %d", exercise_list[exercise_list_size].exercise_name,&exercise_list[exercise_list_size].calories_burned_per_minute) == 2 ) 
+      /// (24.12.20 I changed the code line 48 into more readable form )
+        while (fscanf(file, "%s %d", exercise_list[exercise_list_size].exercise_name,&exercise_list[exercise_list_size].calories_burned_per_minute) != EOF ) { 
       //*(2) increase the number of exercise_list (6 IS THE MAX NUM OF EXERCISES)
-	{
-           exercise_list_size++; 
-        }
-      //*(3) close the file
-    fclose(file);
-}// (24.12.18. by ayoungcho)
+	   if (exercise_list_size < MAX_EXERCISES ) {
+               exercise_list_size++; 
+           }
+      //*(3) break if exercise_list_size > MAX_EXERCISES 
+	    else {
+		  break;
+	    }
+      //*(4) close the file
+	} fclose(file);
+}// (24.12.20 rearragned by ayoung cho)
 // exercise_size_list_size : 5 b.c. it starts from 0 
 
 /*
@@ -74,9 +78,8 @@ void inputExercise(HealthData* health_data) {
     // ToCode: to provide the options for the exercises to be selected
       //*(1) print every exercise in exercise_list 
         printf("The list of exercises: \n");
-        for(i=0; i< exercise_list_size; i++)
-	{
-           printf("%d. %s (%d kcal burned per min.)\n", i + 1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
+        for(i=0; i< exercise_list_size; i++) {
+            printf("%d. %s (%d kcal burned per min.)\n", i + 1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
   	}
 
 	
