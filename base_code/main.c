@@ -29,10 +29,10 @@ int main() {
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	if (health_data.total_calories_intake - 1300 - health_data.total_calories_burned == 0)
-	{
-                printf("You have consumed all your calories for today! \n");
-                break;
+    	if (health_data.total_calories_intake - 1300 - health_data.total_calories_burned == 0) {
+		
+            printf("You have consumed all your calories for today! \n");
+            break;
 	} 
 	
 	else
@@ -48,24 +48,24 @@ int main() {
         	printf("=======================================================================\n");
         }
         
-		// ToCode: to run the sysmtem based on the user's choice
+      // ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
-            	// (1)input exercise and duration choice
+            //* (1) input exercise and duration choice
             	inputExercise(&health_data);
-            	// (2)upload on "health.txt" 
+            //*(2) upload on "health.txt" 
             	saveData(HEALTHFILEPATH, &health_data);
                 break;
                 
             case 2:
-            	// (1)input diet choice
+            //*(1) input diet choice
             	inputDiet(&health_data);
-                // (2)upload on "health.txt" 
+            //*(2) upload on "health.txt" 
                 saveData(HEALTHFILEPATH,&health_data);
                 break;
                 
             case 3:
-            	//(1)to print out the recommendtaion depending on the current total calories burned and intake 
+            //*(1) to print out the recommendtaion depending on the current total calories burned and intake 
             	printHealthData(&health_data);
                 break;
                 
@@ -80,8 +80,6 @@ int main() {
         }
     
     } while ((choice != 4));// exit condition
-    
-
-    return 0;
-}//(24.12.18. by ayoung cho. 24.12.19 modified by ayoung cho)
+  return 0;
+} //(24.12.18. by ayoung cho. 24.12.19 modified by ayoung cho)
 
